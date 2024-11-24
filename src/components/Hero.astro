@@ -1,0 +1,95 @@
+---
+import { Github } from 'lucide-astro'
+import { Linkedin } from 'lucide-astro'
+import { Mail } from 'lucide-astro'
+---
+<section class="w-full h-full flex items-center px-[9%] pt-48 pb-8">
+   <div class="flex flex-col gap-10 w-[60%]">
+      <h1 class="text-5xl font-bold">Germán Binder</h1>
+      <h2 class="text-4xl">
+         <span style="--i:4" data-text="< Full Stack Web Developer />">&lt; Full Stack Web Developer /&gt;</span>
+      </h2>
+      <p class="text-xl">
+         Con una orientación al frontend y una pasión por transformar desafíos en soluciones innovadoras, me considero perseverante y autodidacta. Utilizo el código como una herramienta para resolver problemas de manera creativa y eficiente. Con experiencia en entornos ágiles como Scrum y Kanban, me destaco por mi capacidad de investigación, adaptación y aplicación de estrategias orientadas a resultados concretos.
+      </p>
+      <div class="flex items-center">
+         <a href="/public/CV-German-Binder-Fullstack-Web-Developer.pdf" class="inline-block py-2 px-8 mr-4 bg-mainColor border-[.1rem] border-solid  border-mainColor rounded-md shadow shadow-mainColor text-xl font-medium hover:bg-transparent hover:text-mainColor hover:shadow-none duration-500 hover:border-[.1rem] hover:border-mainColor" target="_blank">Descargar CV</a>
+         <div>
+            <a href="https://github.com/BinderGerman" class="inline-flex p-[.6rem] border-[.1rem] border-solid border-mainColor rounded-full text-3xl text-mainColor my-0 mx-[.8rem] duration-500 hover:bg-mainColor hover:text-bgColor hover:shadow hover:shadow-mainColor" target="_blank">
+               <Github />
+            </a>
+            <a href="https://www.linkedin.com/in/german-binder/" class="inline-flex p-[.6rem] border-[.1rem] border-solid border-mainColor rounded-full text-3xl text-mainColor my-0 mx-[.8rem] duration-500 hover:bg-mainColor hover:text-bgColor hover:shadow hover:shadow-mainColor" target="_blank">
+               <Linkedin />
+            </a>
+            <a href="mailto:bindergerman@gmail.com" class="inline-flex p-[.6rem] border-[.1rem] border-solid border-mainColor rounded-full text-3xl text-mainColor my-0 mx-[.8rem] duration-500 hover:bg-mainColor hover:text-bgColor hover:shadow hover:shadow-mainColor" target="_blank">
+               <Mail />
+            </a>
+         </div>
+      </div>
+   </div>
+   <div class="w-[40%] flex justify-end">
+      <div class="img-box relative w-[24vw] h-[24vw] rounded-full p-[.5rem] flex justify-center items-center overflow-hidden">
+         <div  class="relative w-full h-full bg-bgColor rounded-full border-[.01rem] border-solid border-bgColor flex justify-center z-[1] overflow-hidden">
+            <img src="/profile-photo.png" class="absolute top-2 rounded-full block w-[95%] object-cover mix-blend-lighten"  alt="Profile Photo">
+         </div>
+      </div>
+   </div>
+</section>
+
+<style>
+   h2 span {
+      position: relative;
+      color: transparent;
+      -webkit-text-stroke: .07rem #ff9000;
+      animation: display-text 8s linear infinite;
+      animation-delay: calc(-4s * var(--i));
+      
+   }
+
+   @keyframes display-text {
+      25%,
+      100% {
+         display: none;
+      }
+   }
+
+   h2 span::before {
+      content: attr(data-text);
+      position: absolute;
+      border-right: .2rem solid #ff9000;
+      color: #ff9000;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: fill-text 4s linear infinite;
+   }
+
+   @keyframes fill-text {
+      10%, 100% {
+         width: 0;
+      }
+      70%, 90% {
+         width: 100%;
+      }
+   }
+
+   .img-box::before,
+   .img-box::after {
+      content: '';
+      position: absolute;
+      width: 50rem;
+      height: 50rem;
+      background: conic-gradient(transparent, transparent, transparent, #ff9000 );
+      transform: rotate(0deg);
+      animation: rotate-border 10s linear infinite;
+   }
+
+   .img-box::after {
+      animation-delay: -5s;
+   }
+
+   @keyframes rotate-border {
+      100% {
+         transform: rotate(360deg);
+      }
+   }
+</style>
