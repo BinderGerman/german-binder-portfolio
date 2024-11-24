@@ -1,10 +1,33 @@
 ---
+import MenuMobile from "./MenuMobile.astro"
 ---
-<nav>
-    <ul>
-        <li>Tecnologías</li>
-        <li>Experiencia</li>
-        <li>Proyectos</li>
-        <li>Contacto</li>
+<nav class="w-full flex justify-between items-end py-4 px-[9%]">
+    <a href="#" class='font-bold text-3xl'>
+        German Binder 
+        <span class="text-mainColor text-5xl">.</span>
+    </a>
+    <MenuMobile />
+    <ul class="w-[50vw] flex justify-end gap-8">
+        <li>
+            <a href="#" class="active text-xl font-medium hover:text-mainColor duration-500">Inicio</a>
+        </li>
+        <li>
+            <a href="#" class="text-xl font-medium hover:text-mainColor duration-500">Tecnologías</a>
+        </li>
+        <li>
+            <a href="#" class="text-xl font-medium hover:text-mainColor duration-500">Experiencia</a>
+        </li>
+        <li>
+            <a href="#" class="text-xl font-medium hover:text-mainColor duration-500">Proyectos</a>
+        </li>
+        <li>
+            <a href="#" class="text-xl font-medium hover:text-mainColor duration-500">Contacto</a>
+        </li>
     </ul>
 </nav>
+
+<style>
+    .active {
+        color: #ff9000
+    }
+</style>

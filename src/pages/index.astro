@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Navbar from '../components/Navbar.astro'
 import Header from '../components/Header.astro'
 import Technologies from '../components/Technologies.astro'
 import Experience from '../components/Experience.astro'
@@ -8,9 +9,9 @@ import Contact from '../components/Contact.astro'
 ---
 
 <Layout title="Portfolio: Germán Binder">
-	<Header />
+	<Navbar />
 	<main>
-		<h1>Portfolio de Germán Binder</h1>
+		<Header />
 		<Technologies />
 		<Experience />
 		<Projects />
@@ -19,4 +20,5 @@ import Contact from '../components/Contact.astro'
 </Layout>
 
 <style>
+
 </style>
