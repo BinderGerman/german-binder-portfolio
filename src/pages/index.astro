@@ -1,10 +1,20 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Technologies from '../components/Technologies.astro'
+import Experience from '../components/Experience.astro'
+import Projects from '../components/Projects.astro'
+import Contact from '../components/Contact.astro'
 ---
 
 <Layout title="Portfolio: Germán Binder">
+	<Header />
 	<main>
 		<h1>Portfolio de Germán Binder</h1>
+		<Technologies />
+		<Experience />
+		<Projects />
+		<Contact />
 	</main>
 </Layout>
 
