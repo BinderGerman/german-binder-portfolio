@@ -6,13 +6,15 @@ import Technologies from '../components/Technologies.astro'
 import Experience from '../components/Experience.astro'
 import Projects from '../components/Projects.astro'
 import Contact from '../components/Contact.astro'
+import { getTechnologies } from '../utils/functions/getData'
+const technologies = getTechnologies()
 ---
 
 <Layout title="Portfolio: Germán Binder">
 	<Navbar />
 	<main>
 		<Hero />
-		<Technologies />
+		<Technologies data={technologies}/>
 		<Experience />
 		<Projects />
 		<Contact />
