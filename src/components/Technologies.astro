@@ -6,7 +6,7 @@ const {data} = Astro.props
     <div class="flex flex-wrap justify-center gap-10">
         {
             data.map( (item: any) => (
-                <div class="w-36 flex flex-col items-center gap-4 py-4 px-4 bg-seconBgColor border-[.1rem] border-solid border-seconBgColor rounded-md">
+                <div class="w-36 flex flex-col items-center gap-4 py-4 px-4 bg-seconBgColor border-[.1rem] border-solid border-seconBgColor rounded-md hover:border-mainColor transition-all duration-500">
                     <img src={item.icon} alt={item.name} class="w-16 h-16 object-contain" />
                     <h3 class="text-xl font-bold">{item.name}</h3>
                 </div>
