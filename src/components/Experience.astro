@@ -1,5 +1,129 @@
 ---
+
+const buttons = [
+    {
+        id: 1,
+        text: "Experiencia",
+    },
+    {
+        id: 2,
+        text: "Educación",
+    },
+    {
+        id: 3,
+        text: "Skills",
+    },
+    {
+        id: 4,
+        text: "Sobre mi",
+    },
+];
+
+import { getExperiences, getProfessionalProfile } from "../utils/functions/getData";
+
+const experiences = getExperiences();
+const data = getProfessionalProfile();
+
+
 ---
-<section class=" my-36 px-[9%]">
-    <h2 class="text-4xl text-center text-mainColor font-bold mb-8">Mi Experiencia</h2>
+<section class="my-36 px-[9%]">
+    <div class="grid grid-cols-[1fr_2fr] gap-20">
+        <div class="resume-box">
+            <h2 class="text-5xl font-bold mb-8">¿Por qué contratarme?</h2>
+            <p class="text-xl mb-8">Me gustaría trabajar en un proyecto que me permita aprender y mejorar mi habilidad en el desarrollo de software. Estoy interesado en aprender sobre diferentes tecnologías y trabajar en proyectos que me permitan aplicar mi conocimiento en un entorno real.</p>
+            <div>
+                {
+                    buttons.map((button, index) => (
+                        <button 
+                            id={`${button.id}`}
+                            class={`resume-btn w-full h-16 bg-seconBgColor text-xl font-medium mb-8 rounded-md cursor-pointer border-[.1rem] border-solid border-seconBgColor ${index === 0 ? 'active' : ''}`}   
+                        >
+                            {button.text}
+                        </button>
+                    ))
+                }
+            </div>
+        </div>
+    
+        <div class="resume-box">
+            <div class="resume-detail hidden active-detail">
+                <h2 class="text-4xl font-bold mb-8">Mí <span class="text-mainColor">Experiencia</span></h2>
+                <p class="text-xl mb-8">Conocé un poco más sobre mi experiencia en el trabajo.</p>
+                <div class="resume-list grid grid-cols-[repeat(auto-fit,_minmax(30rem,_1fr))] gap-8 h-[45rem] overflow-y-scroll scrollbar scrollbar-thumb-mainColor hover:scrollbar-thumb-mainColor scrollbar-track-transparent scrollbar-w-2 ">
+                    {
+                        experiences.map((experience, index) => (
+                           <div class="flex flex-col bg-seconBgColor py-12 px-8 rounded-md">
+                                <p class="text-mainColor">{experience.startDate} - {experience.endDate}</p>
+                                <h3 class="text-2xl font-bold mb-2">{experience.title}</h3>
+                                <p class="relative ml-8 mb-4 pt-4 font-bold before:absolute before:content-[''] before:top-[50%] translate-y-[-50%] before:p-[.5rem] before:bg-mainColor before:rounded-full before:ml-[-2rem]">{experience.company}</p>
+                                <p class="summary">{experience.summary}</p>
+                                {/* <ul class=" list-disc ml-8">
+                                    {
+                                        experience.description.map((item) => (
+                                            <li class="">{item}</li>
+                                        ))
+                                    }
+                                </ul> */}
+                            </div>
+                        ))
+                    }
+                </div>
+                
+            </div>
+            <div class="resume-detail hidden">
+                <h2 class="text-4xl font-bold mb-8">Mí <span class="text-mainColor">Educación</span></h2>
+                <p class="text-xl">Conocé un poco más sobre mi experiencia en el trabajo.</p>
+            </div>
+            <div class="resume-detail hidden">
+                <h2 class="text-4xl font-bold mb-8">Mis <span class="text-mainColor">Skills</span></h2>
+                <p class="text-xl">Conocé un poco más sobre mi experiencia en el trabajo.</p>
+            </div>
+            <div class="resume-detail hidden">
+                <h2 class="text-4xl font-bold mb-8">Sobre <span class="text-mainColor">Mí</span></h2>
+                <p class="text-xl">Conocé un poco más sobre mi experiencia en el trabajo.</p>
+            </div>
+        </div>
+    </div> 
 </section>
+
+<script>
+    const resumeBtns = document.querySelectorAll('.resume-btn');
+    resumeBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            const resumeDetails = document.querySelectorAll('.resume-detail');
+
+            resumeBtns.forEach(btn => btn.classList.remove('active'));
+            btn.classList.add('active');
+
+            resumeDetails.forEach(detail => detail.classList.remove('active-detail'));
+            resumeDetails[idx].classList.add('active-detail');
+        })
+    })
+
+
+</script>
+
+<style>
+    .active {
+        border-color: #ff9000;
+        color: #ff9000;
+    }
+
+    .active-detail {
+        display: block;
+    }
+
+    .resume-list::-webkit-scrollbar {
+        width: 0.7rem;
+    }
+
+    .resume-list::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 1rem;
+    }
+
+    .resume-list:hover::-webkit-scrollbar-thumb {
+        background-color: #ff9000;
+    }
+
+</style>
