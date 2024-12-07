@@ -11,3 +11,7 @@ export const getProfessionalProfile = () => {
 export const getExperiences = () => {
   return data.experiences;
 };
+
+export const getEducation = () => {
+  return data.education;
+};
