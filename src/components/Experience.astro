@@ -54,7 +54,7 @@ const education = getEducation();
                 <div class="resume-list grid grid-cols-[repeat(auto-fit,_minmax(30rem,_1fr))] gap-8 h-[45rem] overflow-y-scroll scrollbar scrollbar-thumb-mainColor hover:scrollbar-thumb-mainColor scrollbar-track-transparent scrollbar-w-2 ">
                     {
                         experiences.map((experience, index) => (
-                           <div class="flex flex-col bg-seconBgColor py-12 px-8 rounded-md">
+                            <div class="flex flex-col bg-seconBgColor py-12 px-8 rounded-md">
                                 <p class="text-mainColor">{experience.startDate} - {experience.endDate}</p>
                                 <h3 class="text-2xl font-bold mb-2">{experience.title}</h3>
                                 <p class="relative ml-8 mb-4 pt-4 font-bold before:absolute before:content-[''] before:top-[50%] translate-y-[-50%] before:p-[.5rem] before:bg-mainColor before:rounded-full before:ml-[-2rem]">{experience.company}</p>
